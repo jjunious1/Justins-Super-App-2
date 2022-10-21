@@ -23,6 +23,11 @@ app.get('/recipes', async (req, res) => {
   res.json(allRecipes)
 })
 
+app.put('/createRecipe', async (req, res) => {
+  const createRecipes = await Recipe.creat(req.body)
+  res.json(createRecipes)
+})
+
 //Food Routes
 app.get('/food', async (req, res) => {
   const allFood = await Food.find({})
@@ -42,9 +47,12 @@ app.post('/food', async (req, res) => {
   res.json(newFood)
 })
 
-//edit food
-
 //delete food
+
+app.delete('/food/:id', async (req, res) => {
+  const deleteFood = await Food.findByIdAndDelete(req.params.id)
+  res.json(deleteFood)
+})
 
 //Days routes
 
