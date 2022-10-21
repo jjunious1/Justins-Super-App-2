@@ -17,14 +17,24 @@ app.get('/', (req, res) => {
   res.json('this is working')
 })
 
+//Recipes Routes
 app.get('/recipes', async (req, res) => {
   const allRecipes = await Recipe.find({})
   res.json(allRecipes)
 })
+
+//Food Routes
+app.get('/food', async (req, res) => {
+  const allFood = await Food.find({})
+  res.json(allFood)
+})
+
 app.post('/food', async (req, res) => {
   const newFood = await Food.create(req.body)
   res.json(newFood)
 })
+
+//Days Routes
 
 db.on('error', console.error.bind(console, 'MongoDB connection error'))
 
