@@ -1,11 +1,12 @@
-const { Schema } = require('mongooose')
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 
 const daysSchema = new Schema(
   {
     breakfast: { type: Schema.Types.ObjectId, ref: 'food' },
     lunch: { type: Schema.Types.ObjectId, ref: 'food' },
     dinner: { type: Schema.Types.ObjectId, ref: 'food' },
-    date: { type: String }
+    date: { type: String, required: true }
   },
   { timestamps: true }
 )
