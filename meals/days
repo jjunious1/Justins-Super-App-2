@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const daysSchema = new Schema(
+const Days = new Schema(
   {
     breakfast: { type: Schema.Types.ObjectId, ref: 'food' },
     lunch: { type: Schema.Types.ObjectId, ref: 'food' },
@@ -11,4 +11,4 @@ const daysSchema = new Schema(
   { timestamps: true }
 )
 
-module.exports = daysSchema
+module.exports = mongoose.model('Days', Days)
