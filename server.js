@@ -23,8 +23,13 @@ app.get('/recipes', async (req, res) => {
   res.json(allRecipes)
 })
 
-app.put('/createRecipe', async (req, res) => {
-  const createRecipes = await Recipe.creat(req.body)
+app.put('/updateRecipe', async (req, res) => {
+  const updateRecipes = await Recipe.findByIdAndUpdate(req.body)
+  res.json(createRecipes)
+})
+
+app.post('/createRecipe', async (req, res) => {
+  const createRecipes = await Recipe.create(req.body)
   res.json(createRecipes)
 })
 
@@ -43,7 +48,7 @@ app.get('/food/:id', async (req, res) => {
 
 // create food
 app.post('/food', async (req, res) => {
-  const newFood = await Food.create(req.body)
+  const newFood = await Food.insertMany(req.body)
   res.json(newFood)
 })
 
