@@ -1,0 +1,20 @@
+{
+  "name": "justins-super-app-2",
+  "version": "1.0.0",
+  "description": "Still deciding on what I would like it to be. I am debating between a meal planning app or clothing closet",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jjunious1/Justins-Super-App-2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jjunious1/Justins-Super-App-2/issues"
+  },
+  "homepage": "https://github.com/jjunious1/Justins-Super-App-2#readme"
+}
