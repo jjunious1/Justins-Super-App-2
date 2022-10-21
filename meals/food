@@ -1,0 +1,13 @@
+const { Schema } = require('mongoose')
+
+const foodSchema = new Schema(
+  {
+    name: { type: String, required: true },
+    calories: { type: String, required: true },
+    nutrition: { type: String, required: true },
+    description: { type: String, required: true }
+  },
+  { timestamps: true }
+)
+
+module.exports = foodSchema
