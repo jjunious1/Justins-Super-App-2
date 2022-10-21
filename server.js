@@ -29,12 +29,24 @@ app.get('/food', async (req, res) => {
   res.json(allFood)
 })
 
+//get food by id
+
+app.get('/food/:id', async (req, res) => {
+  const oneFood = await Food.findById(req.params.id)
+  res.json(oneFood)
+})
+
+// create food
 app.post('/food', async (req, res) => {
   const newFood = await Food.create(req.body)
   res.json(newFood)
 })
 
-//Days Routes
+//edit food
+
+//delete food
+
+//Days routes
 
 db.on('error', console.error.bind(console, 'MongoDB connection error'))
 
