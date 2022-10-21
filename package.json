@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/jjunious1/Justins-Super-App-2/issues"
   },
-  "homepage": "https://github.com/jjunious1/Justins-Super-App-2#readme"
+  "homepage": "https://github.com/jjunious1/Justins-Super-App-2#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "mongoose": "^6.6.6",
+    "nodemon": "^2.0.20"
+  }
 }
