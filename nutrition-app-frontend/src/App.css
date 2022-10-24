@@ -1,0 +1,14 @@
+body {
+  background-color: aquamarine;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+  min-height: 2em;
+  background-color: black;
+  color: white;
+}
+Link {
+ justify-content: s;
+}
