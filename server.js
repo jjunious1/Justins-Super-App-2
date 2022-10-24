@@ -30,9 +30,14 @@ app.put('/create_meal_plan', async (req, res) => {
   res.json(updateRecipes)
 })
 
+// used to create recipe and attach food as an array
 app.post('/createrecipe', async (req, res) => {
   const createRecipe = await Recipe.create(req.body)
   res.json(createRecipe)
+})
+app.get('/createrecipe', async (req, res) => {
+  const getRecipes = await Recipe.find({})
+  res.json(getRecipes)
 })
 
 //Food Routes
@@ -43,10 +48,10 @@ app.get('/food', async (req, res) => {
 
 //get food by id
 
-app.get('/food/:id', async (req, res) => {
-  const oneFood = await Food.findById(req.params.id)
-  res.json(oneFood)
-})
+// app.get('/food/:id', async (req, res) => {
+//   const oneFood = await Food.findById(req.params.id)
+//   res.json(oneFood)
+// })
 
 // create food
 app.post('/food', async (req, res) => {
@@ -62,6 +67,11 @@ app.delete('/food/:id', async (req, res) => {
 })
 
 //Days routes
+
+app.post('/create_meal_plan', async (req, res) => {
+  const mealPlans = await Days.insertMany(req.body)
+  res.json(mealPlans)
+})
 
 db.on('error', console.error.bind(console, 'MongoDB connection error'))
 

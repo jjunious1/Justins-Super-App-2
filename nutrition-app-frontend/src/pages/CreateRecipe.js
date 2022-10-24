@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
-const CreateRecipe = () => {
+const CreateRecipe = (props) => {
   const [newRecipe, setNewRecipe] = useState({
     name: '',
     foodArray: [],
@@ -23,6 +23,10 @@ const CreateRecipe = () => {
     setNewRecipe({ name: '', foodArray: [], description: '', url: '' })
   }
 
+  const multipleSelect = () => {
+    document.getElementById('mySelect').multiple = true
+  }
+
   return (
     <div>
       <h2>this is where you can make a recipe</h2>
@@ -37,6 +41,12 @@ const CreateRecipe = () => {
         />
         <label htmlFor="url">Url</label>
         <input id="url" value={newRecipe.url} onChange={handleChange} />
+        <select id="mySelect">
+          <option>Ground beef</option>
+          <option>Pizza</option>
+          <option>White Rice</option>
+          <option></option>
+        </select>
         <button type="submit"> Add Recipe</button>
       </form>
     </div>
@@ -44,3 +54,5 @@ const CreateRecipe = () => {
 }
 
 export default CreateRecipe
+
+// referenced this stackoverflow to dynamically create inputs. https://stackoverflow.com/questions/55921971/how-to-get-a-map-array-in-javascript-to-print-in-a-dropdown-list
