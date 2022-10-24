@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 
 const Recipe = new Schema(
   {
-    name: { type: String, ref: 'food' },
+    name: { type: String, required: true },
     foodArray: [{ type: Schema.Types.ObjectId, ref: 'Food' }],
     description: { type: String, required: true },
     url: { type: String }
