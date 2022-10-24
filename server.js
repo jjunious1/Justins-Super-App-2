@@ -31,7 +31,7 @@ app.put('/create_meal_plan', async (req, res) => {
 })
 
 app.post('/createrecipe', async (req, res) => {
-  const createRecipe = await Recipe.insertMany(req.body)
+  const createRecipe = await Recipe.insertOne(req.body)
   res.json(createRecipe)
 })
 

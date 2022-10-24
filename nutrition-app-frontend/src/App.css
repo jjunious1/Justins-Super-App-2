@@ -9,6 +9,8 @@ body {
   background-color: black;
   color: white;
 }
-Link {
- justify-content: s;
+
+img {
+  max-width: 10%;
+  height: auto;
 }

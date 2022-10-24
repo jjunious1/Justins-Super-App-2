@@ -4,8 +4,7 @@ import axios from 'axios'
 const Recipe = (props) => {
 
 let foods= props.foods.foodArray.map((food)=> (
-( food.name +"  "),
- food.calories
+( food.name +"  ")
  ))
 
   return(
