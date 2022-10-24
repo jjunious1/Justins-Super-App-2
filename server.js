@@ -1,4 +1,5 @@
 const db = require('./db')
+const cors = require('cors')
 const express = require('express')
 const Food = require('./meals/food')
 const Days = require('./meals/days')
@@ -11,6 +12,7 @@ const app = express()
 //middleware
 
 app.use(express.json())
+app.use(cors())
 
 //routes
 app.get('/', (req, res) => {
@@ -19,7 +21,7 @@ app.get('/', (req, res) => {
 
 //Recipes Routes
 app.get('/recipes', async (req, res) => {
-  const allRecipes = await Recipe.find({})
+  const allRecipes = await Recipe.find({}).populate('foodArray')
   res.json(allRecipes)
 })
 

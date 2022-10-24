@@ -14,7 +14,7 @@ const App = () => {
       <main>
         <h1>This is working</h1>
         <Routes>
-          <Route path="/" element={<Recipes />} />
+          <Route path="/recipes" element={<Recipes />} />
           <Route path="/createrecipes" element={<CreateRecipe />} />
           <Route path="/create_meal_plan" element={<MealPlan />} />
         </Routes>
