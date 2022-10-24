@@ -16,7 +16,11 @@ const CreateRecipe = () => {
 
   const handleSubmit = async (evt) => {
     evt.preventDefault()
-    let submittedRecipe = await axios.post('http://localhost:3001/createrecipe')
+    let submittedRecipe = await axios.post(
+      'http://localhost:3001/createrecipe',
+      newRecipe
+    )
+    setNewRecipe({ name: '', foodArray: [], description: '', url: '' })
   }
 
   return (
@@ -24,7 +28,16 @@ const CreateRecipe = () => {
       <h2>this is where you can make a recipe</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Name:</label>
-        <input></input>
+        <input id="name" value={newRecipe.name} onChange={handleChange} />
+        <label htmlFor="description">Description</label>
+        <input
+          id="description"
+          value={newRecipe.description}
+          onChange={handleChange}
+        />
+        <label htmlFor="url">Url</label>
+        <input id="url" value={newRecipe.url} onChange={handleChange} />
+        <button type="submit"> Add Recipe</button>
       </form>
     </div>
   )
