@@ -15,11 +15,13 @@ const Recipes = () => {
 
   return (
     <div>
-      {recipes.map((recipe) => (
+      <h1>All Recipes Here</h1>
+      {recipes.map((meals) => (
         <Recipe
-          name={recipe.name}
-          url={recipe.url}
-          description={recipe.description}
+          foods={meals}
+          name={meals.name}
+          url={meals.url}
+          description={meals.description}
         />
       ))}
     </div>

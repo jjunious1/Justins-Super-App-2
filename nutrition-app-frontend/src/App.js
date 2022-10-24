@@ -12,7 +12,6 @@ const App = () => {
         <Nav />
       </header>
       <main>
-        <h1>This is working</h1>
         <Routes>
           <Route path="/recipes" element={<Recipes />} />
           <Route path="/createrecipes" element={<CreateRecipe />} />
