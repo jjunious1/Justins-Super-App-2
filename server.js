@@ -23,7 +23,7 @@ app.get('/recipes', async (req, res) => {
   res.json(allRecipes)
 })
 
-app.put('/updateRecipe/lunch', async (req, res) => {
+app.put('/create_meal_plan', async (req, res) => {
   const updateRecipes = await Recipe.findByIdAndUpdate(req.body)
   res.json(updateRecipes)
 })
