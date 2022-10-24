@@ -23,14 +23,14 @@ app.get('/recipes', async (req, res) => {
   res.json(allRecipes)
 })
 
-app.put('/updateRecipe', async (req, res) => {
+app.put('/updateRecipe/lunch', async (req, res) => {
   const updateRecipes = await Recipe.findByIdAndUpdate(req.body)
-  res.json(createRecipes)
+  res.json(updateRecipes)
 })
 
-app.post('/createRecipe', async (req, res) => {
-  const createRecipes = await Recipe.create(req.body)
-  res.json(createRecipes)
+app.post('/createrecipe', async (req, res) => {
+  const createRecipe = await Recipe.insertMany(req.body)
+  res.json(createRecipe)
 })
 
 //Food Routes
