@@ -1,12 +1,24 @@
 import './App.css'
-// import { Routes, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import Nav from './components/Nav'
+import Recipes from './pages/Recipes'
+import CreateRecipe from './pages/CreateRecipe'
+import MealPlan from './pages/Mealplan'
 
 const App = () => {
   return (
     <div>
-      <Nav />
-      <h1>This is working</h1>
+      <header>
+        <Nav />
+      </header>
+      <main>
+        <h1>This is working</h1>
+        <Routes>
+          <Route path="/" element={<Recipes />} />
+          <Route path="/createrecipes" element={<CreateRecipe />} />
+          <Route path="/create_meal_plan" element={<MealPlan />} />
+        </Routes>
+      </main>
     </div>
   )
 }
