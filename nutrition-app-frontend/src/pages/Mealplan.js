@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Days from '../components/Days'
 
@@ -110,6 +110,7 @@ const MealPlan = () => {
           dinner={meals.dinner.name}
           weekDay={meals.name}
           key={meals._id}
+          id={meals._id}
         />
       ))}
     </div>

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import axios from 'axios'
 
 const CreateRecipe = (props) => {
@@ -8,7 +8,6 @@ const CreateRecipe = (props) => {
     description: '',
     url: ''
   })
-  const [createdRecipe, setCreatedRecipe] = useState('')
 
   const handleChange = (evt) => {
     setNewRecipe({ ...newRecipe, [evt.target.id]: evt.target.value })

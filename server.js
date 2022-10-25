@@ -41,7 +41,7 @@ app.get('/createrecipe', async (req, res) => {
   res.json(getRecipes)
 })
 
-//USED FOR MAKE A MEAL PLAN
+//USED TO  MAKE/UPDATE A MEAL PLAN
 
 //updates days schema to create meal plan
 app.put('/create_meal_plan/:id', async (req, res) => {
@@ -56,6 +56,13 @@ app.put('/create_meal_plan/:id', async (req, res) => {
   res.json(updateRecipes)
 })
 
+//used to delete added Recipes to meal plan
+app.delete('/create_meal_plan/:id', async (req, res) => {
+  const deleteRecipe = await Days.deleteOne(req.body)
+  res.json(deleteRecipe)
+})
+
+//ALL BELOW ROUTES ARE FOR FILLING DATABASE
 //used to create days documents
 
 app.post('/create_meal_plan', async (req, res) => {
@@ -67,13 +74,6 @@ app.get('/create_meal_plan', async (req, res) => {
   const getMeals = await Days.find({})
   res.json(getMeals)
 })
-
-//get food by id
-
-// app.get('/food/:id', async (req, res) => {
-//   const oneFood = await Food.findById(req.params.id)
-//   res.json(oneFood)
-// })
 
 // create food used to fill database
 app.post('/food', async (req, res) => {
