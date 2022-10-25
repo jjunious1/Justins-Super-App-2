@@ -8,7 +8,7 @@ const Nav = () => {
       <div className = "barlinks">
         <Link to="/recipes">Home</Link>
         <Link to="/createrecipe">MakeRecipe</Link>
-        <Link to="/create_meal_plan">MealPlan</Link>
+        <Link to="/create_meal_plan/:id">MealPlan</Link>
         <Link to="/recipes">Back</Link>
       </div>
     </nav>
