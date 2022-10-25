@@ -60,6 +60,11 @@ app.post('/create_meal_plan', async (req, res) => {
   res.json(mealPlans)
 })
 
+app.get('/create_meal_plan', async (req, res) => {
+  const getMeals = await Days.find({})
+  res.json(getMeals)
+})
+
 //get food by id
 
 // app.get('/food/:id', async (req, res) => {

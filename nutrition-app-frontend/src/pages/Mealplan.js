@@ -1,7 +1,29 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 
 const MealPlan = () => {
+  const { id } = useParams()
+  const [date, setDate] = useState('')
+  const [mealPlans, setMealPlans] = useState([])
+
+  const [updateMeal, setMeal] = useState({
+    breakfast: '',
+    lunch: '',
+    dinner: ''
+  })
+  useEffect(() => {}, [])
+  useEffect(() => {
+    const getMeals = async () => {
+      const response = await axios.get('http://localhost:3001/create_meal_plan')
+      setMealPlans(response.data)
+    }
+    getMeals()
+  }, [])
+
+  const handleChanges1 = (evt) => {
+    setMeal({ ...updateMeal, [evt.target.id]: evt.target.value })
+  }
   return (
     <div>
       <h3>This will be were the mealplans happen</h3>

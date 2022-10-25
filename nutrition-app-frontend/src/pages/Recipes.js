@@ -22,6 +22,7 @@ const Recipes = () => {
           name={meals.name}
           url={meals.url}
           description={meals.description}
+          key={meals._id}
         />
       ))}
     </div>
