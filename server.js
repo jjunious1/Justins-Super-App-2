@@ -49,7 +49,10 @@ app.put('/create_meal_plan/:id', async (req, res) => {
     { date: req.params.id },
     req.body,
     { new: true }
-  ).populate('Recipe')
+  )
+    .populate('breakfast')
+    .populate('lunch')
+    .populate('dinner')
   res.json(updateRecipes)
 })
 

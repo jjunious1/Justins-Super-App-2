@@ -104,7 +104,7 @@ const MealPlan = () => {
       </form>
       {mealPlans.map((meals) => (
         <Days
-          breakfast={meals.breakfast}
+          breakfast={meals}
           weekDay={meals.name}
           url={meals.url}
           description={meals.description}
