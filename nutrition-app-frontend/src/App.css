@@ -22,7 +22,17 @@ img {
   box-sizing: border-box;
   max-width: 25%;
   background-color: aqua;
-  border: 10px solid; 
-  padding: 10%;
+  border: 6px solid; 
+  padding: 8%;
   margin:2% 37% 0 37%;
 }
+.createdmeals {
+  box-sizing: border-box;
+  max-width: 20%;
+  background-color: purple;
+  float: left;
+  border: 5px solid; 
+  padding: 2%;
+  margin: 2% 2% 0 2%;
+}
+

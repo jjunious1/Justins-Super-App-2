@@ -30,7 +30,8 @@ const MealPlan = () => {
     document.getElementById('lunch').value = '0'
     document.getElementById('dinner').value = '0'
     document.getElementById('date').value = '0'
-    setMealPlans(...mealPlans.push(response.data))
+    let newData = response.data
+    setMealPlans(...mealPlans.push(newData))
     navigate(`/create_meal_plan/${date.date}`)
   }
 
@@ -42,7 +43,7 @@ const MealPlan = () => {
   }
 
   return (
-    <div>
+    <div className="createdMeals">
       <h3>This will be were the mealplans happen</h3>
       <form>
         <div className="meals">
@@ -104,10 +105,10 @@ const MealPlan = () => {
       </form>
       {mealPlans.map((meals) => (
         <Days
-          breakfast={meals}
+          breakfast={meals.breakfast.name}
+          lunch={meals.lunch.name}
+          dinner={meals.dinner.name}
           weekDay={meals.name}
-          url={meals.url}
-          description={meals.description}
           key={meals._id}
         />
       ))}
