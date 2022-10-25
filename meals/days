@@ -3,11 +3,11 @@ const Schema = mongoose.Schema
 
 const Days = new Schema(
   {
-    name: { type: String, required: true },
-    breakfast: { type: Schema.Types.ObjectId, ref: 'food' },
-    lunch: { type: Schema.Types.ObjectId, ref: 'food' },
-    dinner: { type: Schema.Types.ObjectId, ref: 'food' },
-    date: { type: String }
+    name: { type: String },
+    breakfast: { type: Schema.Types.ObjectId, ref: 'Recipe' },
+    lunch: { type: Schema.Types.ObjectId, ref: 'Recipe' },
+    dinner: { type: Schema.Types.ObjectId, ref: 'Recipe' },
+    date: { type: String, required: true }
   },
   { timestamps: true }
 )

@@ -44,8 +44,12 @@ app.get('/createrecipe', async (req, res) => {
 //USED FOR MAKE A MEAL PLAN
 
 //updates days schema to create meal plan
-app.put('/create_meal_plan', async (req, res) => {
-  const updateRecipes = await Recipe.findByAndUpdate({ date: req.body })
+app.put('/create_meal_plan/:id', async (req, res) => {
+  const updateRecipes = await Days.findOneAndUpdate(
+    { date: req.params.id },
+    req.body,
+    { new: true }
+  )
   res.json(updateRecipes)
 })
 
