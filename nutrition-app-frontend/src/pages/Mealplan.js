@@ -1,9 +1,9 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import Days from '../components/Days'
 
 const MealPlan = () => {
-  const { id } = useParams()
   const [date, setDate] = useState('')
   const [mealPlans, setMealPlans] = useState([])
   let navigate = useNavigate()
@@ -30,18 +30,9 @@ const MealPlan = () => {
     document.getElementById('lunch').value = '0'
     document.getElementById('dinner').value = '0'
     document.getElementById('date').value = '0'
-
-    console.log(response)
+    setMealPlans(...mealPlans.push(response.data))
     navigate(`/create_meal_plan/${date.date}`)
   }
-
-  useEffect(() => {
-    const getMeals = async () => {
-      const response = await axios.get('http://localhost:3001/create_meal_plan')
-      setMealPlans(response.data)
-    }
-    getMeals()
-  }, [])
 
   const handleValues = (evt) => {
     setMeal({ ...updateMeal, [evt.target.id]: evt.target.value })
@@ -71,13 +62,13 @@ const MealPlan = () => {
           </select>
           <label htmlFor="dinner">Dinner</label>
           <select id="dinner" onChange={handleValues}>
-            <option></option>
+            <option value="0"></option>
             <option value="6356bdace230ef2073386b91">Spaghetti</option>
             <option value="6356bdace230ef2073386b92">Chicken Dinner</option>
             <option value="6356bdace230ef2073386b93">Shrimp and Rice</option>
           </select>
           <select id="date" onInput={handleDate}>
-            <option></option>
+            <option value="0"></option>
             <option>Oct24</option>
             <option>Oct26</option>
             <option>Oct27</option>
@@ -111,6 +102,15 @@ const MealPlan = () => {
           <button onClick={handleSubmit}>Submit Meal</button>
         </div>
       </form>
+      {mealPlans.map((meals) => (
+        <Days
+          breakfast={meals.breakfast}
+          weekDay={meals.name}
+          url={meals.url}
+          description={meals.description}
+          key={meals._id}
+        />
+      ))}
     </div>
   )
 }
