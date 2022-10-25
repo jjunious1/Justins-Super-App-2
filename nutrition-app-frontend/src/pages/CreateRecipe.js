@@ -24,7 +24,7 @@ const CreateRecipe = (props) => {
   }
 
   const multipleSelect = () => {
-    document.getElementById('mySelect').multiple = true
+    document.getElementById('foodArray').multiple = true
   }
 
   return (
@@ -41,13 +41,14 @@ const CreateRecipe = (props) => {
         />
         <label htmlFor="url">Url</label>
         <input id="url" value={newRecipe.url} onChange={handleChange} />
-        <select id="mySelect">
-          <option>Ground beef</option>
-          <option>Pizza</option>
-          <option>White Rice</option>
+        <select id="foodArray" multiple onChange={handleChange}>
           <option></option>
+          <option value="6352e85b2b5127df21b1a4ac">Ground beef</option>
+          <option value="6352f2722b5127df21b1a4ae">Ground turkey</option>
+          <option value="6352f2722b5127df21b1a4b2">White Rice</option>
+          <option value="6352f2722b5127df21b1a4b4">Thin spaghetti</option>
         </select>
-        <button type="submit"> Add Recipe</button>
+        <button type="submit">New Recipe</button>
       </form>
     </div>
   )

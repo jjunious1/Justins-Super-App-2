@@ -1,5 +1,5 @@
 body {
-  background-color: aquamarine;
+  background-color: whitesmoke;
 }
 .navbar {
   display: flex;
@@ -13,4 +13,15 @@ body {
 img {
   max-width: 10%;
   height: auto;
+}
+
+.meals {
+  box-sizing: border-box;
+  max-width: 25%;
+  justify-content: Center;
+  float: left;
+  background-color: aqua;
+  border: 10px solid; 
+  padding: 13%;
+  margin: 2%;
 }

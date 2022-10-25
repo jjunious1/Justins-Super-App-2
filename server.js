@@ -19,31 +19,41 @@ app.get('/', (req, res) => {
   res.json('this is working')
 })
 
-//Recipes Routes
+//USED TO SHOW ALL RECIPES ON HOME PAGE
+
+//Gets all recipes
 app.get('/recipes', async (req, res) => {
   const allRecipes = await Recipe.find({}).populate('foodArray')
   res.json(allRecipes)
 })
 
-app.put('/create_meal_plan', async (req, res) => {
-  const updateRecipes = await Recipe.findByIdAndUpdate(req.body)
-  res.json(updateRecipes)
-})
+// USED FOR CREATING RECIPE
 
 // used to create recipe and attach food as an array
 app.post('/createrecipe', async (req, res) => {
   const createRecipe = await Recipe.create(req.body)
   res.json(createRecipe)
 })
+
+//designed to show all food options while creating recipes
 app.get('/createrecipe', async (req, res) => {
-  const getRecipes = await Recipe.find({})
+  const getRecipes = await Food.find({})
   res.json(getRecipes)
 })
 
-//Food Routes
-app.get('/food', async (req, res) => {
-  const allFood = await Food.find({})
-  res.json(allFood)
+//USED FOR MAKE A MEAL PLAN
+
+//updates days schema to create meal plan
+app.put('/create_meal_plan', async (req, res) => {
+  const updateRecipes = await Recipe.findByAndUpdate({ date: req.body })
+  res.json(updateRecipes)
+})
+
+//used to create days documents
+
+app.post('/create_meal_plan', async (req, res) => {
+  const mealPlans = await Days.insertMany(req.body)
+  res.json(mealPlans)
 })
 
 //get food by id
@@ -53,24 +63,15 @@ app.get('/food', async (req, res) => {
 //   res.json(oneFood)
 // })
 
-// create food
+// create food used to fill database
 app.post('/food', async (req, res) => {
   const newFood = await Food.insertMany(req.body)
   res.json(newFood)
 })
-
-//delete food
-
-app.delete('/food/:id', async (req, res) => {
-  const deleteFood = await Food.findByIdAndDelete(req.params.id)
-  res.json(deleteFood)
-})
-
-//Days routes
-
-app.post('/create_meal_plan', async (req, res) => {
-  const mealPlans = await Days.insertMany(req.body)
-  res.json(mealPlans)
+//Food Routes used to check food Creation in database
+app.get('/food', async (req, res) => {
+  const allFood = await Food.find({})
+  res.json(allFood)
 })
 
 db.on('error', console.error.bind(console, 'MongoDB connection error'))
