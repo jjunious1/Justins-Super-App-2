@@ -1,13 +1,25 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import axios from 'axios'
+import Food from '../components/Food'
 
 const CreateRecipe = (props) => {
+  const [foods, setFood] = useState([])
   const [newRecipe, setNewRecipe] = useState({
     name: '',
     foodArray: [],
     description: '',
     url: ''
   })
+
+  useEffect(() => {
+    const getFood = async () => {
+      const recipeResponse = await axios.get(
+        'http://localhost:3001/createrecipe'
+      )
+      setFood(recipeResponse.data)
+    }
+    getFood()
+  }, [])
 
   const handleChange = (evt) => {
     setNewRecipe({ ...newRecipe, [evt.target.id]: evt.target.value })
@@ -29,7 +41,7 @@ const CreateRecipe = (props) => {
   return (
     <div>
       <h2>this is where you can make a recipe</h2>
-      <form onSubmit={handleSubmit}>
+      <form className="recipeform" onSubmit={handleSubmit}>
         <label htmlFor="name">Name:</label>
         <input id="name" value={newRecipe.name} onChange={handleChange} />
         <label htmlFor="description">Description</label>
@@ -42,13 +54,21 @@ const CreateRecipe = (props) => {
         <input id="url" value={newRecipe.url} onChange={handleChange} />
         <select id="foodArray" multiple onChange={handleChange}>
           <option></option>
-          <option value="6352e85b2b5127df21b1a4ac">Ground beef</option>
-          <option value="6352f2722b5127df21b1a4ae">Ground turkey</option>
-          <option value="6352f2722b5127df21b1a4b2">White Rice</option>
-          <option value="6352f2722b5127df21b1a4b4">Thin spaghetti</option>
+          {foods.map((food) => (
+            <option value={food._id}>{food.name}</option>
+          ))}
         </select>
         <button type="submit">New Recipe</button>
       </form>
+      {foods.map((food) => (
+        <Food
+          name={food.name}
+          description={food.description}
+          calories={food.calories}
+          nutrition={food.nutrition}
+          key={food._id}
+        />
+      ))}
     </div>
   )
 }

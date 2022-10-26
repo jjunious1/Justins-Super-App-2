@@ -4,6 +4,15 @@ body {
 .plans {
   text-align: center;
 }
+.frontpage {
+  border: 2px solid;
+  margin: 2% 10% 0 10%;
+  padding: 5px;
+  width: 75%;
+  height: 550px;
+  overflow-x: auto;
+  text-align: center;
+}
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -30,7 +39,6 @@ img {
 
 .meals {
   box-sizing: border-box;
-  max-width: 25%;
   background-color: aqua;
   border: 6px solid; 
   padding: 8%;

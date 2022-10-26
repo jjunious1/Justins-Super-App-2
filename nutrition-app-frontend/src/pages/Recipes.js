@@ -17,15 +17,17 @@ const Recipes = () => {
   return (
     <div>
       <h1 className="title">All Recipes Here</h1>
-      {recipes.map((meals) => (
-        <Recipe
-          foods={meals}
-          name={meals.name}
-          url={meals.url}
-          description={meals.description}
-          key={meals._id}
-        />
-      ))}
+      <div className="frontpage">
+        {recipes.map((meals) => (
+          <Recipe
+            foods={meals}
+            name={meals.name}
+            url={meals.url}
+            description={meals.description}
+            key={meals._id}
+          />
+        ))}
+      </div>
     </div>
   )
 }
