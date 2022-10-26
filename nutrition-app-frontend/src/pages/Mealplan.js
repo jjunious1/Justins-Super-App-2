@@ -44,7 +44,7 @@ const MealPlan = () => {
 
   return (
     <div className="createdMeals">
-      <h3>This will be were the mealplans happen</h3>
+      <h3 className="plans">This will be were the mealplans happen</h3>
       <form>
         <div className="meals">
           <label htmlFor="name">Breakfast</label>

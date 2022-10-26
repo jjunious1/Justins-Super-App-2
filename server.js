@@ -31,7 +31,7 @@ app.get('/recipes', async (req, res) => {
 
 // used to create recipe and attach food as an array
 app.post('/createrecipe', async (req, res) => {
-  const createRecipe = await Recipe.create(req.body)
+  const createRecipe = await Recipe.insertMany(req.body)
   res.json(createRecipe)
 })
 

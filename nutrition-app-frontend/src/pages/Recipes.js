@@ -15,7 +15,7 @@ const Recipes = () => {
 
   return (
     <div>
-      <h1>All Recipes Here</h1>
+      <h1 className="title">All Recipes Here</h1>
       {recipes.map((meals) => (
         <Recipe
           foods={meals}
