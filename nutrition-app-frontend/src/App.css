@@ -1,6 +1,9 @@
 body {
   background-color: whitesmoke;
 }
+.font-face-gm {
+  font-family: "Antic-Regular";
+}
 .plans, .recipetitle {
   text-align: center;
 }
@@ -46,6 +49,12 @@ body {
   padding: 2%;
   margin: 2%;
 }
+
+.recipeform {
+  display: grid;
+  justify-content: center;
+  width: 100;
+}
 .barlinks:hover {
   opacity: 0.5;
   font-family: Helvetica;
@@ -57,28 +66,46 @@ img {
   object-fit: cover;
   font-size: 30px;
 }
+.labelform {
+ text-align: center;
+}
 
-.recipeform {
+#name {
   display: flex;
   justify-content: center;
 }
 
 .meals {
   box-sizing: border-box;
-  background-color: aqua;
+  background-color: white;
   border: 6px solid; 
-  padding: 8%;
-  margin:2% 37% 0 37%;
+  padding: 5%;
+  margin: 2% 40% 0 40%;
+}
+
+#breakfast, #lunch, #dinner {
+  margin-bottom: 5%;
+}
+
+.mealsubmit {
+  margin-top: 10%;
+  margin-bottom: -90px;
 }
 .createdmeals {
   box-sizing: border-box;
   max-width: 20%;
-  background-color: purple;
+  background-color: rgb(54, 94, 227);
+  color: white;
   float: left;
-  border: 5px solid; 
+  border: 5px solid black; 
   padding: 2%;
   margin: 2% 2% 0 2%;
 }
+
+select {
+  width: 100%;
+}
+
 ul {
   list-style: none;
 }

@@ -22,7 +22,11 @@ const CreateRecipe = (props) => {
   }, [])
 
   const handleChange = (evt) => {
-    setNewRecipe({ ...newRecipe, [evt.target.id]: evt.target.value })
+    setNewRecipe({
+      ...newRecipe,
+      [evt.target.value]: newRecipe.foodArray.push(evt.target.value)
+    })
+    // inputElement: document.getElementById('my-input')
   }
 
   const handleSubmit = async (evt) => {
@@ -34,24 +38,28 @@ const CreateRecipe = (props) => {
     setNewRecipe({ name: '', foodArray: [], description: '', url: '' })
   }
 
-  const multipleSelect = () => {
-    document.getElementById('foodArray').multiple = true
-  }
-
   return (
     <div>
       <h2 className="recipetitle">Add food to make a Recipe</h2>
       <form className="recipeform" onSubmit={handleSubmit}>
-        <label htmlFor="name">Name:</label>
+        <label htmlFor="name" className="labelform">
+          Name:
+        </label>
         <input id="name" value={newRecipe.name} onChange={handleChange} />
-        <label htmlFor="description">Description</label>
+        <label htmlFor="description" className="labelform">
+          Description
+        </label>
         <input
           id="description"
           value={newRecipe.description}
           onChange={handleChange}
         />
-        <label htmlFor="url">Url</label>
+        <label htmlFor="url" className="labelform">
+          Url
+        </label>
         <input id="url" value={newRecipe.url} onChange={handleChange} />
+        <label>MultiSelect</label>
+        <input id="multiSelect" />
         <select id="foodArray" multiple onChange={handleChange}>
           <option></option>
           {foods.map((food) => (

@@ -14,5 +14,6 @@ code {
 
 @font-face {
   font-family: 'Antic-Regular';
-  src: local('Antic-Regular'), url(./fonts/Antic/Antic-Regular.ttf) format('ttf');
+  src: local('Antic-Regular'), url(./fonts/Antic/Antic-Regular.ttf) format('truetype');
+  font-weight: bold;
 }

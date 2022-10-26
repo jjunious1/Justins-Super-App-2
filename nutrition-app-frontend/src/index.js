@@ -4,6 +4,7 @@ import './index.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 import { BrowserRouter } from 'react-router-dom'
+import './fonts/Antic/Antic-Regular.ttf' //used this link to add fonts https://blog.greenroots.info/3-quick-ways-to-add-fonts-to-your-react-app
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(

@@ -21,12 +21,13 @@ const Days = (props) => {
   return(
     <div className ="createdmeals">
       <ul>
-      <button value = {props.id} onClick={handleChange}>Delete recipes</button>
+      <button className="delete" value = {props.id} onClick={handleChange}>Delete recipes</button>
         <li className="Meal Plan">
-          <h3 className="Meal Day">{props.weekDay}</h3>
-          <h4> {props.breakfast}</h4>
-          <h4>{props.lunch}</h4>
-          <h4>{props.dinner}</h4>
+          <label>WeekDay</label>
+          <h1 className="Meal Day">{props.weekDay}</h1>
+          <h4> Breakfast: {props.breakfast}</h4>
+          <h4>Lunch: {props.lunch}</h4>
+          <h4>Dinner: {props.dinner}</h4>
         </li>
       </ul>  
     </div>

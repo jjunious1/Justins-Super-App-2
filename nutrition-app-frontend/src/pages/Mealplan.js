@@ -51,12 +51,13 @@ const MealPlan = () => {
   }
   const handleDate = (evt) => {
     setDate({ ...date, [evt.target.id]: evt.target.value })
+    console.log(date)
   }
 
   return (
     <div className="createdMeals">
-      <h3 className="plans">This will be were the mealplans happen</h3>
-      <form>
+      <h3 className="plans">Plan you Meals by Day here!</h3>
+      <form className="dayform">
         <div className="meals">
           <label htmlFor="name">Breakfast</label>
           <select id="breakfast" onChange={handleValues}>
@@ -81,6 +82,7 @@ const MealPlan = () => {
               <option value={recipe._id}>{recipe.name}</option>
             ))}
           </select>
+          <label htmlFor="date">Date</label>
           <select id="date" onInput={handleDate}>
             <option value="0"></option>
             <option>Oct24</option>
@@ -113,19 +115,24 @@ const MealPlan = () => {
             <option>Dec1</option>
             <option>Dec2</option>
           </select>
-          <button onClick={handleSubmit}>Submit Meal</button>
+          <br></br>
+          <button className="mealsubmit" onClick={handleSubmit}>
+            Submit Meal
+          </button>
         </div>
       </form>
-      {mealPlans.map((meals) => (
-        <Days
-          breakfast={meals.breakfast.name}
-          lunch={meals.lunch.name}
-          dinner={meals.dinner.name}
-          weekDay={meals.name}
-          key={meals._id}
-          id={meals._id}
-        />
-      ))}
+      <div className="dailymeal">
+        {mealPlans.map((meals) => (
+          <Days
+            breakfast={meals.breakfast.name}
+            lunch={meals.lunch.name}
+            dinner={meals.dinner.name}
+            weekDay={meals.name}
+            key={meals._id}
+            id={meals._id}
+          />
+        ))}
+      </div>
     </div>
   )
 }
