@@ -1,11 +1,12 @@
 import axios from 'axios'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Days from '../components/Days'
 
 const MealPlan = () => {
   const [date, setDate] = useState('')
   const [mealPlans, setMealPlans] = useState([])
+  const [recipes, setRecipes] = useState([])
   let navigate = useNavigate()
 
   const [updateMeal, setMeal] = useState({
@@ -13,6 +14,16 @@ const MealPlan = () => {
     lunch: '',
     dinner: ''
   })
+
+  useEffect(() => {
+    const getRecipes = async () => {
+      const recipeResponse = await axios.get(
+        'http://localhost:3001/create_meal_plan/:id'
+      )
+      setRecipes(recipeResponse.data)
+    }
+    getRecipes()
+  }, [])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -50,23 +61,25 @@ const MealPlan = () => {
           <label htmlFor="name">Breakfast</label>
           <select id="breakfast" onChange={handleValues}>
             <option value="0"></option>
-            <option value="6356bdace230ef2073386b91">Spaghetti</option>
-            <option value="6356bdace230ef2073386b92">Chicken Dinner</option>
-            <option value="6356bdace230ef2073386b93">Shrimp and Rice</option>
+            {recipes.map((recipe) => (
+              <option value={recipe._id}>{recipe.name}</option>
+            ))}
           </select>
           <label htmlFor="lunch">Lunch</label>
           <select id="lunch" onChange={handleValues}>
             <option value="0"></option>
-            <option value="6356bdace230ef2073386b91">Spaghetti</option>
-            <option value="6356bdace230ef2073386b92">Chicken Dinner</option>
-            <option value="6356bdace230ef2073386b93">Shrimp and Rice</option>
+            {recipes.map((recipe) => (
+              <option value={recipe._id} key={recipe._id}>
+                {recipe.name}
+              </option>
+            ))}
           </select>
           <label htmlFor="dinner">Dinner</label>
           <select id="dinner" onChange={handleValues}>
             <option value="0"></option>
-            <option value="6356bdace230ef2073386b91">Spaghetti</option>
-            <option value="6356bdace230ef2073386b92">Chicken Dinner</option>
-            <option value="6356bdace230ef2073386b93">Shrimp and Rice</option>
+            {recipes.map((recipe) => (
+              <option value={recipe._id}>{recipe.name}</option>
+            ))}
           </select>
           <select id="date" onInput={handleDate}>
             <option value="0"></option>

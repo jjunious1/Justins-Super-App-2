@@ -1,6 +1,7 @@
 import Recipe from '../components/Recipe'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import MealPlan from './Mealplan'
 
 const Recipes = () => {
   const [recipes, setRecipes] = useState([])

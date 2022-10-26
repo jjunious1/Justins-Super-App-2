@@ -14,8 +14,8 @@ const Days = (props) => {
     )}
 
   const handleChange = (evt) => {
-setDayId(evt.target.value)
-deleteMeal()
+    setDayId(evt.target.value)
+    deleteMeal()
   }
 
   return(

@@ -43,6 +43,12 @@ app.get('/createrecipe', async (req, res) => {
 
 //USED TO  MAKE/UPDATE A MEAL PLAN
 
+//used to pull recipes for meal plan page
+app.get('/create_meal_plan/:id', async (req, res) => {
+  const allRecipes = await Recipe.find({})
+  res.json(allRecipes)
+})
+
 //updates days schema to create meal plan
 app.put('/create_meal_plan/:id', async (req, res) => {
   const updateRecipes = await Days.findOneAndUpdate(
