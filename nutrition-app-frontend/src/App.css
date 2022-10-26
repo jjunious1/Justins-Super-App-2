@@ -6,28 +6,45 @@ body {
 }
 .frontpage {
   border: 2px solid;
-  margin: 2% 10% 0 10%;
+  margin: 5% 10% 0 10%;
   padding: 5px;
   width: 75%;
   height: 550px;
   overflow-x: auto;
   text-align: center;
 }
+.sitename {
+  font-size: 75px;
+}
 .navbar {
   display: flex;
   justify-content: space-between;
   padding: 1em;
   min-height: 2em;
-  background-color: black;
+  background-color: rgb(54, 94, 227);
   color: white;
+}
+.navbar a {
+  text-decoration: none;
+  color: rgb(54, 94, 227);
+  font-weight: bold;
+  margin-left: 1em;
+  background-color: white;
+  border: 3px solid white;
+  border-radius: 20%;
 }
 .title {
   Text-align: center;
+  font-size: 300%;
 }
 .recipes {
   float: left;
   padding: 2%;
   margin: 2%;
+}
+.barlinks:hover {
+  opacity: 0.5;
+  font-family: Helvetica;
 }
 
 img {
