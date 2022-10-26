@@ -1,10 +1,10 @@
 body {
   background-color: whitesmoke;
 }
-.plans {
+.plans, .recipetitle {
   text-align: center;
 }
-.frontpage {
+.frontpage, .recipepage {
   border: 2px solid;
   margin: 5% 10% 0 10%;
   padding: 5px;
@@ -13,8 +13,12 @@ body {
   overflow-x: auto;
   text-align: center;
 }
+.recipepage {
+  width: 80%; 
+}
 .sitename {
   font-size: 75px;
+  font-family: ;
 }
 .navbar {
   display: flex;
@@ -52,6 +56,11 @@ img {
   height: 300px;
   object-fit: cover;
   font-size: 30px;
+}
+
+.recipeform {
+  display: flex;
+  justify-content: center;
 }
 
 .meals {

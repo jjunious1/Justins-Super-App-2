@@ -11,3 +11,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: 'Antic-Regular';
+  src: local('Antic-Regular'), url(./fonts/Antic/Antic-Regular.ttf) format('ttf');
+}

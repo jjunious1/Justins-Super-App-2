@@ -40,7 +40,7 @@ const CreateRecipe = (props) => {
 
   return (
     <div>
-      <h2>this is where you can make a recipe</h2>
+      <h2 className="recipetitle">Add food to make a Recipe</h2>
       <form className="recipeform" onSubmit={handleSubmit}>
         <label htmlFor="name">Name:</label>
         <input id="name" value={newRecipe.name} onChange={handleChange} />
@@ -60,15 +60,18 @@ const CreateRecipe = (props) => {
         </select>
         <button type="submit">New Recipe</button>
       </form>
-      {foods.map((food) => (
-        <Food
-          name={food.name}
-          description={food.description}
-          calories={food.calories}
-          nutrition={food.nutrition}
-          key={food._id}
-        />
-      ))}
+      <div className="recipepage">
+        {foods.map((food) => (
+          <Food
+            name={food.name}
+            description={food.description}
+            calories={food.calories}
+            nutrition={food.nutrition}
+            url={food.url}
+            key={food._id}
+          />
+        ))}
+      </div>
     </div>
   )
 }
