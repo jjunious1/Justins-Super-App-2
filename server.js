@@ -13,7 +13,7 @@ const app = express()
 
 app.use(express.json())
 app.use(cors())
-app.use(express.static(`${__dirname}/client/build`))
+app.use(express.static(`${__dirname}/nutrition-app-frontend/build`))
 
 //routes
 app.get('/', (req, res) => {
@@ -96,7 +96,7 @@ app.get('/food', async (req, res) => {
 db.on('error', console.error.bind(console, 'MongoDB connection error'))
 
 app.get('/*', (req, res) => {
-  res.sendFile(`${__dirname}/client/build/index.html`)
+  res.sendFile(`${__dirname}/nutrition-app-frontend/build/index.html`)
 })
 
 app.listen(PORT, () => {
