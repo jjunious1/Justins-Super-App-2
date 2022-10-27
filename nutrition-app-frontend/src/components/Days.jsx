@@ -6,7 +6,7 @@ const Days = (props) => {
 
   const [dayId, setDayId] = useState('')
 
-
+//deletes the current target meal
     const deleteMeal = async () => {
     const response = await axios.delete(
       `http://localhost:3001/create_meal_plan/${dayId}`

@@ -1,7 +1,5 @@
 const Food = (props) => {
 
- 
-  
     return(
       <div>
         <ul>

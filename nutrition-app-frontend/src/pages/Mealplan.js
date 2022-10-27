@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import Days from '../components/Days'
 
 const MealPlan = () => {
+  //useState variables
   const [date, setDate] = useState('')
   const [mealPlans, setMealPlans] = useState([])
   const [recipes, setRecipes] = useState([])
@@ -15,6 +16,8 @@ const MealPlan = () => {
     dinner: ''
   })
 
+  //useEffect function that gets recipes used in the form to update your meal day
+
   useEffect(() => {
     const getRecipes = async () => {
       const recipeResponse = await axios.get(
@@ -25,6 +28,7 @@ const MealPlan = () => {
     getRecipes()
   }, [])
 
+  //functions 1st- passes the state to update the Days document with the reciepes and resets the form
   const handleSubmit = async (e) => {
     e.preventDefault()
     const response = await axios.put(
@@ -45,6 +49,8 @@ const MealPlan = () => {
     setMealPlans(...mealPlans.push(newData))
     navigate(`/create_meal_plan/${date.date}`)
   }
+
+  // handles passing data to states
 
   const handleValues = (evt) => {
     setMeal({ ...updateMeal, [evt.target.id]: evt.target.value })

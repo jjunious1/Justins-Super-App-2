@@ -13,6 +13,7 @@ const app = express()
 
 app.use(express.json())
 app.use(cors())
+app.use(express.static(`${__dirname}/client/build`))
 
 //routes
 app.get('/', (req, res) => {
@@ -93,6 +94,10 @@ app.get('/food', async (req, res) => {
 })
 
 db.on('error', console.error.bind(console, 'MongoDB connection error'))
+
+app.get('/*', (req, res) => {
+  res.sendFile(`${__dirname}/client/build/index.html`)
+})
 
 app.listen(PORT, () => {
   console.log(`Express server listening on port : ${PORT}`)

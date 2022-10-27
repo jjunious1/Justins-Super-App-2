@@ -3,6 +3,8 @@ import axios from 'axios'
 import Food from '../components/Food'
 
 const CreateRecipe = (props) => {
+  //useState variables
+
   const [foods, setFood] = useState([])
   const [inputData, setInputData] = useState([])
   const [newRecipe, setNewRecipe] = useState({
@@ -11,7 +13,7 @@ const CreateRecipe = (props) => {
     description: '',
     url: ''
   })
-
+  //useEffect variable that gets all food documents
   useEffect(() => {
     const getFood = async () => {
       const recipeResponse = await axios.get(
@@ -22,6 +24,7 @@ const CreateRecipe = (props) => {
     getFood()
   }, [])
 
+  //functions handles adding the inputs to the newRecipe state and the second one adds the ids to the newRecipe foodArray
   const handleChange = (evt) => {
     setNewRecipe({
       ...newRecipe,
@@ -65,8 +68,6 @@ const CreateRecipe = (props) => {
           Url
         </label>
         <input id="url" value={newRecipe.url} onChange={handleChange} />
-        <label>MultiSelect</label>
-        <input id="multiSelect" />
         <select id="foodArray" multiple onChange={handleChange2}>
           <option></option>
           {foods.map((food) => (
