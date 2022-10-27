@@ -64,7 +64,7 @@ app.put('/create_meal_plan/:id', async (req, res) => {
 
 //used to delete added Recipes to meal plan
 app.delete('/create_meal_plan/:id', async (req, res) => {
-  const deleteRecipe = await Days.deleteOne(req.body)
+  const deleteRecipe = await Days.findByIdAndDelete({ id: req.params.id })
   res.json(deleteRecipe)
 })
 

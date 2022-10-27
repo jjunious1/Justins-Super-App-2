@@ -1,9 +1,10 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Children } from 'react'
 import axios from 'axios'
 import Food from '../components/Food'
 
 const CreateRecipe = (props) => {
   const [foods, setFood] = useState([])
+  const [inputData, setInputData] = useState([])
   const [newRecipe, setNewRecipe] = useState({
     name: '',
     foodArray: [],
@@ -24,9 +25,15 @@ const CreateRecipe = (props) => {
   const handleChange = (evt) => {
     setNewRecipe({
       ...newRecipe,
+      [evt.target.id]: evt.target.value
+    })
+  }
+  const handleChange2 = (evt) => {
+    setNewRecipe({
+      ...newRecipe,
       [evt.target.value]: newRecipe.foodArray.push(evt.target.value)
     })
-    // inputElement: document.getElementById('my-input')
+    // console.log(evt.target.children.nextElementSibling)
   }
 
   const handleSubmit = async (evt) => {
@@ -60,10 +67,12 @@ const CreateRecipe = (props) => {
         <input id="url" value={newRecipe.url} onChange={handleChange} />
         <label>MultiSelect</label>
         <input id="multiSelect" />
-        <select id="foodArray" multiple onChange={handleChange}>
+        <select id="foodArray" multiple onChange={handleChange2}>
           <option></option>
           {foods.map((food) => (
-            <option value={food._id}>{food.name}</option>
+            <option value={food._id} key={food.name}>
+              {food.name}
+            </option>
           ))}
         </select>
         <button type="submit">New Recipe</button>

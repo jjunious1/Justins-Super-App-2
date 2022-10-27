@@ -9,8 +9,8 @@ body {
 }
 .frontpage, .recipepage {
   border: 2px solid;
-  margin: 5% 10% 0 10%;
-  padding: 5px;
+  margin: 5% 10% 0 12%;
+  padding: 10px;
   width: 75%;
   height: 550px;
   overflow-x: auto;
