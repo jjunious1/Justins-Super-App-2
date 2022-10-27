@@ -9,15 +9,16 @@ body {
 }
 .frontpage, .recipepage {
   border: 2px solid;
-  margin: 5% 10% 0 12%;
+  margin: 5% 10% 0 10%;
   padding: 10px;
-  width: 75%;
+  width: 80%;
   height: 550px;
   overflow-x: auto;
   text-align: center;
 }
 .recipepage {
-  width: 80%; 
+  margin: 5% 8% 0 8%;
+  width: 85%; 
 }
 .sitename {
   font-size: 75px;

@@ -15,6 +15,7 @@ const Days = (props) => {
 
   const handleChange = (evt) => {
     setDayId(evt.target.value)
+    console.log(dayId)
     deleteMeal()
   }
 

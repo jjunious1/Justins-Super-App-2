@@ -86,6 +86,7 @@ const MealPlan = () => {
           <select id="date" onInput={handleDate}>
             <option value="0"></option>
             <option>Oct24</option>
+            <option>Oct25</option>
             <option>Oct26</option>
             <option>Oct27</option>
             <option>Oct28</option>
