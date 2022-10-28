@@ -6,6 +6,7 @@ import Days from '../components/Days'
 const MealPlan = () => {
   //useState variables
   const [date, setDate] = useState('')
+  const [dayId, setDayId] = useState('')
   const [mealPlans, setMealPlans] = useState([])
   const [recipes, setRecipes] = useState([])
   let navigate = useNavigate()
@@ -58,6 +59,20 @@ const MealPlan = () => {
   const handleDate = (evt) => {
     setDate({ ...date, [evt.target.id]: evt.target.value })
     console.log(date)
+  }
+
+  //deletes the current target meal
+  const deleteMeal = async () => {
+    const response = await axios.delete(
+      `http://localhost:3001/create_meal_plan/${dayId}`
+    )
+    console.log(response)
+  }
+
+  const handleChange = (evt) => {
+    setDayId(evt.target.value)
+    console.log(dayId)
+    deleteMeal()
   }
 
   return (
@@ -137,6 +152,7 @@ const MealPlan = () => {
             weekDay={meals.name}
             key={meals._id}
             id={meals._id}
+            onClick={handleChange}
           />
         ))}
       </div>
