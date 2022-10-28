@@ -1,18 +1,28 @@
-import { useState, useEffect, Children } from 'react'
+import { useState, useEffect } from 'react'
 import axios from 'axios'
 import Food from '../components/Food'
+import { useNavigate } from 'react-router-dom'
 
 const CreateRecipe = (props) => {
   //useState variables
 
   const [foods, setFood] = useState([])
-  const [inputData, setInputData] = useState([])
   const [newRecipe, setNewRecipe] = useState({
     name: '',
     foodArray: [],
     description: '',
     url: ''
   })
+  const [newFood, setNewFood] = useState({
+    name: '',
+    url: '',
+    calories: '',
+    nutrition: '',
+    description: ''
+  })
+
+  let navigate = useNavigate()
+
   //useEffect variable that gets all food documents
   useEffect(() => {
     const getFood = async () => {
@@ -36,7 +46,13 @@ const CreateRecipe = (props) => {
       ...newRecipe,
       [evt.target.value]: newRecipe.foodArray.push(evt.target.value)
     })
-    // console.log(evt.target.children.nextElementSibling)
+  }
+
+  const foodChange = (evt) => {
+    setNewFood({
+      ...newFood,
+      [evt.target.id]: evt.target.value
+    })
   }
 
   const handleSubmit = async (evt) => {
@@ -46,6 +62,22 @@ const CreateRecipe = (props) => {
       newRecipe
     )
     setNewRecipe({ name: '', foodArray: [], description: '', url: '' })
+  }
+
+  const foodSubmit = async (evt) => {
+    let createFood = await axios.post(
+      'http://localhost:3001/createrecipe/food',
+      newFood
+    )
+    navigate('/createrecipe/food')
+    navigate('/createrecipe')
+    setNewFood({
+      name: '',
+      url: '',
+      calories: '',
+      nutrition: '',
+      description: ''
+    })
   }
 
   return (
@@ -79,6 +111,40 @@ const CreateRecipe = (props) => {
         <button type="submit">New Recipe</button>
       </form>
       <div className="recipepage">
+        <label>Add food here</label>
+        <form id="addFood">
+          <input
+            id="name"
+            value={newFood.name}
+            placeholder="food name"
+            onChange={foodChange}
+          ></input>
+          <input
+            id="url"
+            value={newFood.url}
+            placeholder="image"
+            onChange={foodChange}
+          ></input>
+          <input
+            id="calories"
+            value={newFood.calories}
+            placeholder="calories"
+            onChange={foodChange}
+          ></input>
+          <input
+            id="nutrition"
+            value={newFood.nutrition}
+            placeholder="nutrition"
+            onChange={foodChange}
+          ></input>
+          <input
+            id="description"
+            value={newFood.description}
+            placeholder="description"
+            onChange={foodChange}
+          ></input>
+          <button onClick={foodSubmit}>Add Food</button>
+        </form>
         {foods.map((food) => (
           <Food
             name={food.name}

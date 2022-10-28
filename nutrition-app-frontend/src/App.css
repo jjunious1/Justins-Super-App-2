@@ -4,6 +4,24 @@ body {
 .font-face-gm {
   font-family: "Antic-Regular";
 }
+
+.home {
+  display: grid;
+  justify-content: center;
+}
+.homeImg {
+  margin-left: 5%;
+  width: 80%;
+  height: auto;
+}
+.titleLine {
+  margin-left: 20%;
+}
+
+.firstPage {
+  margin-left: 39%;
+  border-radius: 15%;
+}
 .plans, .recipetitle {
   text-align: center;
 }
@@ -56,6 +74,7 @@ body {
   justify-content: center;
   width: 100;
 }
+
 .barlinks:hover {
   opacity: 0.5;
   font-family: Helvetica;
@@ -69,11 +88,6 @@ img {
 }
 .labelform {
  text-align: center;
-}
-
-#name {
-  display: flex;
-  justify-content: center;
 }
 
 .meals {

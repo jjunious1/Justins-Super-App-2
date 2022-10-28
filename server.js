@@ -42,6 +42,11 @@ app.get('/createrecipe', async (req, res) => {
   res.json(getRecipes)
 })
 
+app.post('/createrecipe/food', async (req, res) => {
+  const makeRecipe = await Food.create(req.body)
+  res.json(makeRecipe)
+})
+
 //USED TO  MAKE/UPDATE A MEAL PLAN
 
 //used to pull recipes for meal plan page
