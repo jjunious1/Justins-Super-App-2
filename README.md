@@ -1,17 +1,45 @@
-# Justin Second Project
+# Justins Nutrition App
 
-Still deciding on what I would like it to be. I am debating between a meal planning app or clothing closet
+[Linkedin](https://www.linkedin.com/in/jjunious/)
 
-### Description
+### **_Description_**
 
 - Meal Planning App
-  ![Meal-Plan](https://jordosworld.com/wp-content/uploads/2021/05/meal-plan-2-1-791x1024.jpg 'Text to show on mouseover')
-  In this app you will be able to search a database of food. You will be able to build out a weekly meal plan from the food you search. If something does not exist you will be able to add it. You can also remove items from the planned meal day.
+  ![Meal-Plan](/Images/Screen%20Shot%202022-10-28%20at%2012.05.55%20PM.png 'Text to show on mouseover')
+  The purpose of this application is to give you the ability
 
-### Rough Lucid Diagram
+  ### **_Technologies Used_**
 
-[Hierarchy](https://lucid.app/lucidchart/91aff5fa-7bd7-46ff-97d3-a5ae88404180/edit?viewport_loc=-11%2C-11%2C1419%2C1041%2C0_0&invitationId=inv_4b539dcf-9085-4c5b-bd94-d77da31712fb)
+  - React
+  - MongoDB
+  - Node.js
+  - Express.js
+  - Javascript
+  - Html
+  - Css
+  - Mongoose
 
-### monday (work progress board)
+  ### **_Getting Started_**
 
-[Monday-Board](https://view.monday.com/3399388922-7248cbd95601e76bf4d3227d5d8c5af0?r=use1)
+- #### Board used to track project [Monday Board](https://view.monday.com/3399388922-7248cbd95601e76bf4d3227d5d8c5af0?r=use1)
+
+- #### Heroku Deployment [Heroku Deployment](https://justins-nutrition-app.herokuapp.com/)
+
+##### **_Rough Lucid Diagram_**
+
+I used this diagram as a reference to understand user experience and how the database would connect/flow.
+Feel free to modify this and make your own.
+
+![Hierarchy](/Images/Screen%20Shot%202022-10-28%20at%2012.19.47%20PM.png)
+
+### **_Future Updates_**
+
+- Add Calendar to Meal creation page that displays created meals on the approriate section
+
+- Add the ability on the Recipes page to display total calories per Recipe
+
+- Add on Calendar day total Calories and Nutrition for the day
+
+- Add the ability to favorite recipes and Meal days
+
+- Maybe add User support
