@@ -66,7 +66,6 @@ const MealPlan = () => {
     const response = await axios.delete(
       `http://localhost:3001/create_meal_plan/${dayId}`
     )
-    console.log(response)
   }
 
   const handleChange = (evt) => {
