@@ -26,9 +26,7 @@ const CreateRecipe = (props) => {
   //useEffect variable that gets all food documents
   useEffect(() => {
     const getFood = async () => {
-      const recipeResponse = await axios.get(
-        'http://localhost:3001/createrecipe'
-      )
+      const recipeResponse = await axios.get('/createrecipe')
       setFood(recipeResponse.data)
     }
     getFood()
@@ -57,18 +55,12 @@ const CreateRecipe = (props) => {
 
   const handleSubmit = async (evt) => {
     evt.preventDefault()
-    let submittedRecipe = await axios.post(
-      'http://localhost:3001/createrecipe',
-      newRecipe
-    )
+    let submittedRecipe = await axios.post('/createrecipe', newRecipe)
     setNewRecipe({ name: '', foodArray: [], description: '', url: '' })
   }
 
   const foodSubmit = async (evt) => {
-    let createFood = await axios.post(
-      'http://localhost:3001/createrecipe/food',
-      newFood
-    )
+    let createFood = await axios.post('/createrecipe/food', newFood)
     navigate('/createrecipe/food')
     navigate('/createrecipe')
     setNewFood({

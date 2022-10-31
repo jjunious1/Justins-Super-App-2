@@ -21,9 +21,7 @@ const MealPlan = () => {
 
   useEffect(() => {
     const getRecipes = async () => {
-      const recipeResponse = await axios.get(
-        'http://localhost:3001/create_meal_plan/:id'
-      )
+      const recipeResponse = await axios.get('/create_meal_plan/:id')
       setRecipes(recipeResponse.data)
     }
     getRecipes()
@@ -33,7 +31,7 @@ const MealPlan = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     const response = await axios.put(
-      `http://localhost:3001/create_meal_plan/${date.date}`,
+      `/create_meal_plan/${date.date}`,
       updateMeal
     )
     setMeal({
@@ -63,9 +61,7 @@ const MealPlan = () => {
 
   //deletes the current target meal
   const deleteMeal = async () => {
-    const response = await axios.delete(
-      `http://localhost:3001/create_meal_plan/${dayId}`
-    )
+    const response = await axios.delete(`/create_meal_plan/${dayId}`)
   }
 
   const handleChange = (evt) => {

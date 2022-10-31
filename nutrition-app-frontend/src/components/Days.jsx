@@ -1,23 +1,5 @@
-import { useState } from "react"
-import axios from "axios"
-
 
 const Days = (props) => {
-
-//   const [dayId, setDayId] = useState('')
-
-// //deletes the current target meal
-//     const deleteMeal = async () => {
-//     const response = await axios.delete(
-//       `http://localhost:3001/create_meal_plan/${dayId}`
-//     )
-//   }
-
-//   const handleChange = (evt) => {
-//     setDayId(evt.target.value)
-//     console.log(dayId)
-//     deleteMeal()
-//   }
 
   return(
     <div className ="createdmeals">
